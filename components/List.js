@@ -56,7 +56,7 @@ export default class List extends React.Component {
         )
     }
 
-    icon(size = 'cover') {
+    icon() {
         const type = this.state.reportIcon.main
         let image = {image}
         switch (type) {
@@ -69,7 +69,7 @@ export default class List extends React.Component {
             default:
                 image = require('./icons/sun.png')
         }
-        return <Image source= {image} style={{size: size}} />
+        return <Image source= {image}  />
         // return <Text>{type}</Text>
     }
 

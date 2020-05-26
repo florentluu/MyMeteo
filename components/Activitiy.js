@@ -83,19 +83,14 @@ export default class Activity extends React.Component{
 componentDidMount() {
     axios.get(`http://192.168.0.40:3000/activity`)
     .then(response => {
-        const data = response.data[0].city
+        const data = response.data
         this.setState({data});
-        console.log('city', response.data[0])
+        console.log('city', this.state.data)
       })
-      axios.get(`http://192.168.O.40:3000/activity/rain`)
-      .then(response => {
-          const raindata = response.data[0]
-          this.setState({raindata});
-          console.log('rain2', response.data[0])
-      })
-  } 
+}
 
-render () { console.log('rain', this.state.raindata)
+render () { 
+    const cityData= this.state.data
     return(
         <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
             <ScrollView>
@@ -118,7 +113,7 @@ render () { console.log('rain', this.state.raindata)
                     source={require('./icons/logoDrinkWhite.png')}
                 />
                 {Drinks.map(glass => ( 
-                <View>
+                <View key= {glass}>
                     <Text style= {{fontSize: 20,color: "tomato", paddingVertical: 20, textAlign: 'center'}}>{glass.placeName}</Text>
                     <Text style={{color: 'white', textAlign: 'center', paddingHorizontal: 20, paddingBottom: 10}}>{glass.description}</Text> 
                     <Text style={{color: 'orange', textAlign: 'center'}}>{glass.website}</Text>
@@ -140,10 +135,23 @@ render () { console.log('rain', this.state.raindata)
                 ))}
                 
 {/* ----- TEST ------ */}
-                <View>
-                <Text style={{color: 'white'}}>{this.state.data}</Text>
-                <Text style={{color: 'white'}}>{this.state.raindata}</Text>
-                </View>  
+                {/* {cityData.map(place =>  (
+                <View style={{flex: 1}}>
+                    <Text style={{color: 'white', textAlign: 'center'}}>{place.drinks}</Text>
+                    <Text style={{color: 'white', textAlign: 'center'}}>{place.descriptionDrinks}</Text>
+                    <Text style={{color: 'white', textAlign: 'center'}}
+                        onPress={() => Linking.openURL(place.link)}>
+                        Visitez le site
+                    </Text>
+                    <Text style={{color: 'white', textAlign: 'center'}}>{place.places}</Text>
+                    <Text style={{color: 'white', textAlign: 'center'}}>{place.descriptionPlaces}</Text>
+                    <Text style={{color: 'white', textAlign: 'center'}}
+                        onPress={() => Linking.openURL(place.localisation)}>
+                        Localisation
+                    </Text>
+                </View> 
+                ))}  */}
+
             </ScrollView>
         </SafeAreaView>
     )
