@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Text, ActivityIndicator, View, StyleSheet, Image } from 'react-native'
+import { Text, ActivityIndicator, View, StyleSheet, Image, FlatList } from 'react-native'
 import { Button} from 'react-native-elements'
 import moment from 'moment'
 import 'moment/locale/fr'
@@ -20,10 +20,11 @@ export default class List extends React.Component {
                 reportTemp: [],
                 reportDay: null,
                 reportName: '',
-                reportIcon: ''
+                reportIcon: '',
+                data: []
         }
         this.fetchWeather();
-    }
+    }  
 
     fetchWeather= () => {
         axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=5532df1797d063ad21fcfdf28745da7e&lang=fr`)
@@ -44,14 +45,14 @@ export default class List extends React.Component {
     day() {
         let day = moment(this.state.reportDay * 1000 ).format('ddd')
         return (
-            <Text style={[style.white, style.bold]}> {day.toUpperCase() }</Text>
+            <Text style={[style.tomato, style.bold]}> {day.toUpperCase() }</Text>
         )
     }
 
     date() {
         let day = moment(this.state.reportDay * 1000 ).format('DD/MM')
         return (
-            <Text style={style.white}> {day}</Text>
+            <Text style={style.tomato}> {day}</Text>
         )
     }
 
@@ -75,13 +76,13 @@ export default class List extends React.Component {
     //QUOI FAIRE //
 
     toDo() {
-        this.props.navigation.navigate("toDO", {city: this.state.city})
+        this.props.navigation.navigate("Whazaaa", {city: this.state.city})
     }
     
     render() {
        const cityData= this.state.reportTemp
        const cityName= this.state.reportName
-    //    const cityIcon= this.state.reportIcon
+    
         
         if (this.state.reportTemp === null) {
             return(
@@ -96,14 +97,18 @@ export default class List extends React.Component {
                             <Text>{this.day()} {this.date()}</Text>
                             <Text style={style.temp}>{Math.round(cityData.temp)} °C</Text>
                             {/* Math.round pour arrondir */}
+
+                            <Text></Text>
+
                         </View>
                         <View style={{alignItems: 'center', paddingBottom: 50}}>
                             { this.icon() }
                         </View>
                         <Button 
                             type= 'outline'
+                            // onPress={() => this.toDo()} 
                             onPress={() => this.toDo()} 
-                            title='Quoi Faire ?' />    
+                            title='Quoi Faire ?' />  
                     </View>
                 </FadeInView>
             )
@@ -115,18 +120,18 @@ const style = StyleSheet.create({
     bold: {
         fontWeight: 'bold'
     },
-    white: {
-        color: 'white'
+    tomato: {
+        color: 'tomato'
     },
     view: {
-        backgroundColor: 'tomato',
+        backgroundColor: 'black',
         borderWidth: 0,
         borderBottomWidth: 1,
         borderBottomColor: 'black',
         paddingHorizontal: 20,
         paddingVertical: 10,
         flex: 1,
-        flexDirection: 'column', 
+        flexDirection: 'column',
     },
     topView: {
         flexDirection: 'column', 
@@ -136,7 +141,7 @@ const style = StyleSheet.create({
         alignItems: 'center'
     },
     temp: {
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
         fontSize: 23,
         padding: 20
