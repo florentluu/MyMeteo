@@ -34,7 +34,7 @@ export default class List extends React.Component {
                     reportDay: response.data.dt,
                     reportName: response.data.name,
                     reportIcon: response.data.weather[0]
-
+                    
                 })
                 //response.data.main fait reférence aux infos de l'appel API
                 //response.data.weather[0] fait reférence à un array
@@ -76,7 +76,8 @@ export default class List extends React.Component {
     //QUOI FAIRE //
 
     toDo() {
-        this.props.navigation.navigate("Whazaaa", {city: this.state.city})
+        this.props.navigation.navigate("Whazaaa", {city: this.state.city}),
+        this.props.navigation.navigate("Whazaaa",{reportIcon: this.state.reportIcon.main})
     }
     
     render() {

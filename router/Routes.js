@@ -28,9 +28,9 @@ app.get('/activity', function (req, res) {
   });
 });
 
-app.get('/activity/rain', function (req, res) {
+app.get('/placeActivity', function (req, res) {
   connection.getConnection(function (err, connection) {
-  connection.query(`SELECT * FROM activity WHERE rain = 1`, function (error, results, fields) {
+  connection.query('SELECT * FROM placeActivity', function (error, results, fields) {
     if (error) throw error;
     res.send(results)
   });

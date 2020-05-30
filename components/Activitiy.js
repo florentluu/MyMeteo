@@ -72,25 +72,34 @@ export default class Activity extends React.Component{
         this.state={ 
             city: this.props.route.params.city,
             data: [],
-            raindata: []
+            dataPlace: [],
+            reportIcon: this.props.route.params.reportIcon
+            
         }
 
     }
-
-
-// ----- TEST ------
 
 componentDidMount() {
     axios.get(`http://192.168.0.40:3000/activity`)
     .then(response => {
         const data = response.data
         this.setState({data});
-        console.log('city', this.state.data)
+        console.log('city', this.state.data[0].city)
+      })
+      axios.get(`http://192.168.0.40:3000/placeActivity`)
+    .then(response => {
+        const dataPlace = response.data
+        this.setState({dataPlace});
       })
 }
 
-render () { 
+// cityFilter(){
+//     if (this.state.city === )
+// }
+
+render () { console.log(this.state.reportIcon)
     const cityData= this.state.data
+    const cityPlace= this.state.dataPlace
     return(
         <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
             <ScrollView>
@@ -108,7 +117,7 @@ render () {
 
 {/* // DRINKS // */}
 
-                <Image
+                {/* <Image
                     style={styles.logo}
                     source={require('./icons/logoDrinkWhite.png')}
                 />
@@ -118,11 +127,11 @@ render () {
                     <Text style={{color: 'white', textAlign: 'center', paddingHorizontal: 20, paddingBottom: 10}}>{glass.description}</Text> 
                     <Text style={{color: 'orange', textAlign: 'center'}}>{glass.website}</Text>
                 </View>
-                ))}
+                ))} */}
 
 {/* // ACTIVITIES // */}
 
-                <Image
+                {/* <Image
                     style={styles.logo}
                     source={require('./icons/logoActivityWhite.png')}
                 />
@@ -132,26 +141,42 @@ render () {
                     <Text style={{color: 'white', textAlign: 'center', paddingHorizontal: 20, paddingBottom: 10}}>{activity.description}</Text>
                     <Text style={{color: 'orange', textAlign: 'center'}}>{activity.localisation}</Text> 
                 </View>         
-                ))}
+                ))} */}
                 
 {/* ----- TEST ------ */}
-                {/* {cityData.map(place =>  (
+                <Image
+                    style={styles.logo}
+                    source={require('./icons/logoDrinkWhite.png')}
+                />
+
+                {cityData.map(place =>  place.city===this.state.city && place.weather===this.state.reportIcon && (
+                    // FILTER WITH TERNAIRE CONDITION 
+
                 <View style={{flex: 1}}>
-                    <Text style={{color: 'white', textAlign: 'center'}}>{place.drinks}</Text>
-                    <Text style={{color: 'white', textAlign: 'center'}}>{place.descriptionDrinks}</Text>
-                    <Text style={{color: 'white', textAlign: 'center'}}
+                    <Text style={{fontSize: 20,color: "tomato", paddingVertical: 20, textAlign: 'center'}}>{place.drinks}</Text>
+                    <Text style={{color: 'white', textAlign: 'center', paddingHorizontal: 20, paddingBottom: 10}}>{place.descriptionDrinks}</Text>
+                    <Text style={{color: 'orange', textAlign: 'center'}}
                         onPress={() => Linking.openURL(place.link)}>
                         Visitez le site
-                    </Text>
-                    <Text style={{color: 'white', textAlign: 'center'}}>{place.places}</Text>
-                    <Text style={{color: 'white', textAlign: 'center'}}>{place.descriptionPlaces}</Text>
-                    <Text style={{color: 'white', textAlign: 'center'}}
-                        onPress={() => Linking.openURL(place.localisation)}>
-                        Localisation
-                    </Text>
+                    </Text> 
                 </View> 
-                ))}  */}
+                ))} 
 
+                <Image
+                    style={styles.logo}
+                    source={require('./icons/logoActivityWhite.png')}
+                />
+
+                {cityPlace.map(act =>  act.city===this.state.city && act.weather===this.state.reportIcon &&(
+                <View style={{flex: 1}}>
+                <Text style={{fontSize: 20,color: "tomato", paddingVertical: 20, textAlign: 'center'}}>{act.name}</Text>
+                <Text style={{color: 'white', textAlign: 'center', paddingHorizontal: 20, paddingBottom: 10}}>{act.description}</Text>
+                <Text style={{color: 'orange', textAlign: 'center'}}
+                    onPress={() => Linking.openURL(act.localisation)}>
+                    Localisation
+                </Text>
+                </View>
+                ))} 
             </ScrollView>
         </SafeAreaView>
     )
