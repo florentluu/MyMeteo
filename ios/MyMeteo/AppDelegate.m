@@ -9,10 +9,14 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import "RNSplashScreen.h"
+
 
 #import <UMCore/UMModuleRegistry.h>
 #import <UMReactNativeAdapter/UMNativeModulesProxy.h>
 #import <UMReactNativeAdapter/UMModuleRegistryAdapter.h>
+
+
 
 @interface AppDelegate ()
 
@@ -39,8 +43,12 @@
 #endif
 
   [super application:application didFinishLaunchingWithOptions:launchOptions];
-
   return YES;
+
+  [RNSplashScreen show];  // here
+    // or
+    //[RNSplashScreen showSplash:@"LaunchScreen" inRootView:rootView];
+    return YES;
 }
 
 - (RCTBridge *)initializeReactNativeApp
@@ -77,5 +85,7 @@
 {
   appController.bridge = [self initializeReactNativeApp];
 }
+
+
 
 @end

@@ -149,7 +149,7 @@ render () { console.log(this.state.reportIcon)
                     source={require('./icons/logoDrinkWhite.png')}
                 />
 
-                {cityData.map(place =>  place.city===this.state.city && place.weather===this.state.reportIcon && (
+                {cityData.map(place =>  place.city===this.state.city && place.weather!==this.state.reportIcon && (
                     // FILTER WITH TERNAIRE CONDITION 
 
                 <View style={{flex: 1}}>
@@ -167,7 +167,7 @@ render () { console.log(this.state.reportIcon)
                     source={require('./icons/logoActivityWhite.png')}
                 />
 
-                {cityPlace.map(act =>  act.city===this.state.city && act.weather===this.state.reportIcon &&(
+                {cityPlace.map(act =>  act.city===this.state.city && act.weather!== this.state.reportIcon  &&(
                 <View style={{flex: 1}}>
                 <Text style={{fontSize: 20,color: "tomato", paddingVertical: 20, textAlign: 'center'}}>{act.name}</Text>
                 <Text style={{color: 'white', textAlign: 'center', paddingHorizontal: 20, paddingBottom: 10}}>{act.description}</Text>

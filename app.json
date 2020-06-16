@@ -12,6 +12,11 @@
     ],
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "splash": {
+      "image": "./components/icons/logoSplash.png",
+      "backgroundColor": "#333341",
+      "resizeMode": "cover"
+    }
   }
 }
