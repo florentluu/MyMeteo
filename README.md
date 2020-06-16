@@ -1,6 +1,16 @@
-Phone APP with React-Native and Node
+		     Flat Design.
+**Mobile Application with React-Native / Node / MySql**
+										
+	This is an application based on weather.
+	
+We always asked the same question when you visit a place:
 
-Weather APP with direct temperature.
+		WHAT CAN I DO TODAY ?
 
-Flat Design.
+ This application can guide you for your rainy or sunny journey. 
+From visiting the best places *(for chilling)* to cultural things 
+    *(in order to know the history of the city)*.
 
+	Enjoy and Have a good experience ! 
+
+		   ***Florent***
