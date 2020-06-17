@@ -4,67 +4,67 @@ import { View, Text, Image, StyleSheet, SafeAreaView, ScrollView, Linking} from 
 import Constants from 'expo-constants';
 
 
-const Drinks = [
-     { 
-       placeName:'DARWIN', 
-       description: 'Lorsque les jours se rallongent, quel bonheur de pouvoir sortir dans un endroit atypique! Chaque mercredi, Darwin organise « les heures heureuses » : dj set, bières et snacks.',
-       website: 
-       <Text 
-        onPress={() => Linking.openURL('https://darwin.camp/')}>
-        Site Internet
-        </Text>
-    },
-    {
-        placeName:`MAMA SHELTER` ,
-        description:`Un rooftop avec une vue imprenable sur Bordeaux, de la bonne musique, des bons concktails et une décoration made in Starck.`,
-        website: 
-        <Text
-        onPress={() => Linking.openURL('https://www.mamashelter.com/fr/bordeaux')}>
-        Site Internet
-        </Text>
-    },
-    {
-        placeName: `LA GUINGUETTE CHEZ ALRIQ` ,
-        description: `Sympathique ginguette sur les bords de la Garenne, en plein air, où l'on vient autant pour danser que partager un verre entre amis, où satisfaire une petite faim estivale.`,
-        website: 
-        <Text
-        onPress={() => Linking.openURL('https://www.laguinguettechezalriq.com/')}>
-        Site Internet
-        </Text>
-    }
+// const Drinks = [
+//      { 
+//        placeName:'DARWIN', 
+//        description: 'Lorsque les jours se rallongent, quel bonheur de pouvoir sortir dans un endroit atypique! Chaque mercredi, Darwin organise « les heures heureuses » : dj set, bières et snacks.',
+//        website: 
+//        <Text 
+//         onPress={() => Linking.openURL('https://darwin.camp/')}>
+//         Site Internet
+//         </Text>
+//     },
+//     {
+//         placeName:`MAMA SHELTER` ,
+//         description:`Un rooftop avec une vue imprenable sur Bordeaux, de la bonne musique, des bons concktails et une décoration made in Starck.`,
+//         website: 
+//         <Text
+//         onPress={() => Linking.openURL('https://www.mamashelter.com/fr/bordeaux')}>
+//         Site Internet
+//         </Text>
+//     },
+//     {
+//         placeName: `LA GUINGUETTE CHEZ ALRIQ` ,
+//         description: `Sympathique ginguette sur les bords de la Garenne, en plein air, où l'on vient autant pour danser que partager un verre entre amis, où satisfaire une petite faim estivale.`,
+//         website: 
+//         <Text
+//         onPress={() => Linking.openURL('https://www.laguinguettechezalriq.com/')}>
+//         Site Internet
+//         </Text>
+//     }
 // Places : {
 //     BordeauxLac: `On part rapidement au lac où de nombreuses activités nautiques vous attendent : voile, canoë Kayak, stand-up paddle, …` ,
 //     Lesquais: `Une balade en long de garonne où vous pouvez profiter d'une large pelouse pour faire un pique-nique et/ou une longue sieste sous les arbres.`,
 //     LaCitéduVin: `Un endroit spécialement dédié à la fierté bordelaise : LE VIN. Musée, dégustation, restauration, ... tout y est pour passer un beau moment gustatif et culturel`
 // }
-]
+// ]
 
-const Activities = [
-    {
-        placeName: `BORDEAUX-LAC`,
-        description: `On part rapidement au lac où de nombreuses activités nautiques vous attendent : voile, canoë Kayak, stand-up paddle, …`,
-        localisation: <Text
-        onPress={() => Linking.openURL('https://www.google.com/maps/place/Plage+du+Lac/@44.8781683,-0.5788743,15z/data=!4m5!3m4!1s0x0:0x320a5e5582d85a63!8m2!3d44.8781683!4d-0.5788743')}>
-        Localisation
-        </Text>
-    },
-    {
-        placeName: `LES QUAIS`,
-        description: `Une balade en long de garonne où vous pouvez profiter d'une large pelouse pour faire un pique-nique et/ou une longue sieste sous les arbres.`,
-        localisation: <Text
-        onPress={() => Linking.openURL('https://www.google.com/maps/place/Les+Quais+De+Bordeaux/@44.84224,-0.5734838,17z/data=!3m1!4b1!4m5!3m4!1s0xd552878dc2368f9:0xc91c64e91e3a6409!8m2!3d44.8422362!4d-0.5712951')}>
-        Localisation
-        </Text>
-    },
-    {
-        placeName: `LA CITÉ DU VIN`,
-        description: `Un endroit spécialement dédié à la fierté bordelaise : LE VIN. Musée, dégustation, restauration, ... tout y est pour passer un beau moment gustatif et culturel.`,
-        localisation: <Text
-        onPress={() => Linking.openURL('https://www.google.com/maps/place/Cit%C3%A9+du+Vin/@44.8622542,-0.5499052,15z/data=!4m5!3m4!1s0x0:0x41574cdcced6d11a!8m2!3d44.8622542!4d-0.5499052')}>
-        Localisation
-        </Text>
-    }
-]
+// const Activities = [
+//     {
+//         placeName: `BORDEAUX-LAC`,
+//         description: `On part rapidement au lac où de nombreuses activités nautiques vous attendent : voile, canoë Kayak, stand-up paddle, …`,
+//         localisation: <Text
+//         onPress={() => Linking.openURL('https://www.google.com/maps/place/Plage+du+Lac/@44.8781683,-0.5788743,15z/data=!4m5!3m4!1s0x0:0x320a5e5582d85a63!8m2!3d44.8781683!4d-0.5788743')}>
+//         Localisation
+//         </Text>
+//     },
+//     {
+//         placeName: `LES QUAIS`,
+//         description: `Une balade en long de garonne où vous pouvez profiter d'une large pelouse pour faire un pique-nique et/ou une longue sieste sous les arbres.`,
+//         localisation: <Text
+//         onPress={() => Linking.openURL('https://www.google.com/maps/place/Les+Quais+De+Bordeaux/@44.84224,-0.5734838,17z/data=!3m1!4b1!4m5!3m4!1s0xd552878dc2368f9:0xc91c64e91e3a6409!8m2!3d44.8422362!4d-0.5712951')}>
+//         Localisation
+//         </Text>
+//     },
+//     {
+//         placeName: `LA CITÉ DU VIN`,
+//         description: `Un endroit spécialement dédié à la fierté bordelaise : LE VIN. Musée, dégustation, restauration, ... tout y est pour passer un beau moment gustatif et culturel.`,
+//         localisation: <Text
+//         onPress={() => Linking.openURL('https://www.google.com/maps/place/Cit%C3%A9+du+Vin/@44.8622542,-0.5499052,15z/data=!4m5!3m4!1s0x0:0x41574cdcced6d11a!8m2!3d44.8622542!4d-0.5499052')}>
+//         Localisation
+//         </Text>
+//     }
+// ]
 
 export default class Activity extends React.Component{
     constructor(props){
@@ -79,14 +79,20 @@ export default class Activity extends React.Component{
 
     }
 
+componentDidUpdate() {
+    if(this.state.reportIcon === "Clouds"){
+        this.setState({reportIcon: "Clear"})
+    }
+}
+
 componentDidMount() {
-    axios.get(`http://192.168.0.40:3000/activity`)
+    axios.get(`https://whaza.herokuapp.com/activity`)
     .then(response => {
         const data = response.data
         this.setState({data});
-        console.log('city', this.state.data[0].city)
+        console.log('city',this.state.data[0].city)
       })
-      axios.get(`http://192.168.0.40:3000/placeActivity`)
+      axios.get(`https://whaza.herokuapp.com/placeActivity`)
     .then(response => {
         const dataPlace = response.data
         this.setState({dataPlace});
@@ -148,10 +154,10 @@ render () { console.log(this.state.reportIcon)
                     style={styles.logo}
                     source={require('./icons/logoDrinkWhite.png')}
                 />
-
-                {cityData.map(place =>  place.city===this.state.city && place.weather!==this.state.reportIcon && (
+                
+                {cityData.map(place =>  place.city===this.state.city && place.weather==this.state.reportIcon && (
                     // FILTER WITH TERNAIRE CONDITION 
-
+                    
                 <View style={{flex: 1}}>
                     <Text style={{fontSize: 20,color: "tomato", paddingVertical: 20, textAlign: 'center'}}>{place.drinks}</Text>
                     <Text style={{color: 'white', textAlign: 'center', paddingHorizontal: 20, paddingBottom: 10}}>{place.descriptionDrinks}</Text>
@@ -160,14 +166,15 @@ render () { console.log(this.state.reportIcon)
                         Visitez le site
                     </Text> 
                 </View> 
-                ))} 
+                ))
+                } 
 
                 <Image
                     style={styles.logo}
                     source={require('./icons/logoActivityWhite.png')}
                 />
 
-                {cityPlace.map(act =>  act.city===this.state.city && act.weather!== this.state.reportIcon  &&(
+                {cityPlace.map(act =>  act.city===this.state.city && act.weather== this.state.reportIcon  &&(
                 <View style={{flex: 1}}>
                 <Text style={{fontSize: 20,color: "tomato", paddingVertical: 20, textAlign: 'center'}}>{act.name}</Text>
                 <Text style={{color: 'white', textAlign: 'center', paddingHorizontal: 20, paddingBottom: 10}}>{act.description}</Text>

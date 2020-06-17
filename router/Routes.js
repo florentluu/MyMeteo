@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
+
 // import { DBhost, DBuser,DBpassword, DBdatabase } from 'react-native-dotenv'
 
 // const connection = mysql.createPool({
@@ -15,6 +16,7 @@ const mysql = require('mysql');
 
 require('dotenv').config({path:'../.env'})
 
+const PORT = process.env.DBhost 
 
 
 const connection = mysql.createPool({
@@ -23,7 +25,7 @@ const connection = mysql.createPool({
   password : process.env.DBpassword,
   database : process.env.DBdatabase
 });
-
+console.log(connection)
 // mysql:b7fb3d980df837:677a3898@eu-cdbr-west-03.cleardb.net/heroku_02048da86eec67a?reconnect=true
 
 // connection.connect();
@@ -60,6 +62,6 @@ app.get('/placeActivity', function (req, res) {
 
 
 // Starting our server.
-app.listen(3000, () => {
- console.log('Go to http://192.168.0.40:3000/activity so you can see the data.');
-});
+app.listen(3000, () => 
+ console.log(`Go so you can see the data.`)
+);
