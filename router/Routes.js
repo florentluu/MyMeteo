@@ -64,6 +64,6 @@ app.get('/placeActivity', function (req, res) {
 
 
 // Starting our server.
-app.listen(PORT || 8080, () => 
+app.listen(3000, () => 
  console.log(`Go so you can see the data.`)
 );
