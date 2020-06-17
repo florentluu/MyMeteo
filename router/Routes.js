@@ -33,6 +33,8 @@ console.log(connection)
 // Starting our app.
 const app = express();
 
+app.set('port', (process.env.PORT || 3306));
+
 // Creating a GET route that returns data from the 'users' table.
 app.get('/activity', function (req, res) {
     // Connecting to the database.
@@ -62,6 +64,6 @@ app.get('/placeActivity', function (req, res) {
 
 
 // Starting our server.
-app.listen(3000, () => 
+app.listen(PORT || 8080, () => 
  console.log(`Go so you can see the data.`)
 );
