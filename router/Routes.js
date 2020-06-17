@@ -16,7 +16,7 @@ const mysql = require('mysql');
 
 require('dotenv').config({path:'../.env'})
 
-const PORT = process.env.PORT || 3000 
+  const PORT = process.env.PORT || 3000 
   const host = process.env.DBhost
   const user = process.env.DBuser
   const password = process.env.DBpassword
@@ -66,6 +66,6 @@ app.get('/placeActivity', function (req, res) {
 
 
 // Starting our server.
-app.listen(PORT, () => 
+app.listen(3306 || 3000, () => 
  console.log(`Go to ${PORT}so you can see the data.`)
 );
