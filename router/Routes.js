@@ -16,7 +16,7 @@ const mysql = require('mysql');
 
 require('dotenv').config({path:'../.env'})
 
-const PORT = process.env.DBhost 
+const PORT = process.env.PORT || 3000 
 
 
 const connection = mysql.createPool({
@@ -32,8 +32,6 @@ console.log(connection)
 
 // Starting our app.
 const app = express();
-
-app.set('port', (process.env.PORT || 3306));
 
 // Creating a GET route that returns data from the 'users' table.
 app.get('/activity', function (req, res) {
@@ -64,6 +62,6 @@ app.get('/placeActivity', function (req, res) {
 
 
 // Starting our server.
-app.listen(3000, () => 
- console.log(`Go so you can see the data.`)
+app.listen(PORT, () => 
+ console.log(`Go to ${PORT}so you can see the data.`)
 );
