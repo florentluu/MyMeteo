@@ -14,7 +14,7 @@ const mysql = require('mysql');
 
 //_____-----______//
 
-require('dotenv').config({path:'../.env'})
+require('dotenv').config({path:'./.env'})
 
 const PORT = process.env.PORT || 3000 
 
