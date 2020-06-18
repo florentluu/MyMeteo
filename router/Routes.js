@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+// Starting our app.
+const app = express();
 
 
 // import { DBhost, DBuser,DBpassword, DBdatabase } from 'react-native-dotenv'
@@ -22,7 +24,6 @@ require('dotenv').config({path:'../.env'})
   const password = process.env.DBpassword
   const database = process.env.DBdatabase
 
-
 const connection = mysql.createPool({
   host     : host,
   user     : user,
@@ -34,8 +35,8 @@ console.log(connection)
 
 // connection.connect();
 
-// Starting our app.
-const app = express();
+
+
 
 app.get('/', function (req, res) {
     // Connecting to the database.

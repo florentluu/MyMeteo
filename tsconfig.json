@@ -8,5 +8,12 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true
+  },
+  "development": {
+    "username": "b7fb3d980df837",
+    "password": "677a3898",
+    "database": "heroku_02048da86eec67a",
+    "host": "eu-cdbr-west-03.cleardb.net",
+    "dialect": "mysql"
   }
 }
