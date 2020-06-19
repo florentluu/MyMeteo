@@ -3,19 +3,9 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 // Starting our app.
 const app = express();
-
 // require('dotenv').config({path:'../.env'})
 
 const port = process.env.PORT || 8000
-
-// const connection = mysql.createPool({
-//   host     : 'eu-cdbr-west-03.cleardb.net',
-//   user     : 'b7fb3d980df837',
-//   password : '677a3898',
-//   database : 'heroku_02048da86eec67a'
-// });
-
-// //_____-----______//
 
 const connection = mysql.createPool({
   host: process.env.DB_HOST,
@@ -25,8 +15,6 @@ const connection = mysql.createPool({
 });
 
 console.log(connection)
-// mysql:b7fb3d980df837:677a3898@eu-cdbr-west-03.cleardb.net/heroku_02048da86eec67a?reconnect=true
-
 
 app.get('/', function (req, res) {
     // Connecting to the database.
