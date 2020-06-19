@@ -86,13 +86,13 @@ componentDidUpdate() {
 }
 
 componentDidMount() {
-    axios.get(`https://whaza.herokuapp.com/activity`)
+    axios.get(`http://whaza.herokuapp.com/activity`)
     .then(response => {
         const data = response.data
         this.setState({data});
         console.log('city',this.state.data[0].city)
       })
-      axios.get(`https://whaza.herokuapp.com/placeActivity`)
+      axios.get(`http://whaza.herokuapp.com/placeActivity`)
     .then(response => {
         const dataPlace = response.data
         this.setState({dataPlace});
