@@ -8,12 +8,12 @@ const app = express();
 
 // const PORT = process.env.PORT
 
-// const connection = mysql.createPool({
-//   host     : 'eu-cdbr-west-03.cleardb.net',
-//   user     : 'b7fb3d980df837',
-//   password : '677a3898',
-//   database : 'heroku_02048da86eec67a'
-// });
+const connection = mysql.createPool({
+  host     : 'eu-cdbr-west-03.cleardb.net',
+  user     : 'b7fb3d980df837',
+  password : '677a3898',
+  database : 'heroku_02048da86eec67a'
+});
 
 // //_____-----______//
 
@@ -75,6 +75,6 @@ app.get('/placeActivity', function (req, res) {
 
 
 // Starting our server.
-app.listen(PORT, () => 
+app.listen(3306, () => 
  console.log(`Go to ${PORT}so you can see the data.`)
 );
