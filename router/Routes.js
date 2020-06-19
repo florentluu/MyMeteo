@@ -6,7 +6,7 @@ const app = express();
 
 // require('dotenv').config({path:'../.env'})
 
-// const PORT = process.env.PORT
+const port = process.env.PORT || 8000
 
 const connection = mysql.createPool({
   host     : 'eu-cdbr-west-03.cleardb.net',
@@ -75,6 +75,6 @@ app.get('/placeActivity', function (req, res) {
 
 
 // Starting our server.
-app.listen(3306, () => 
- console.log(`Go to ${PORT}so you can see the data.`)
+app.listen(port, () => 
+ console.log(`Go to ${port} so you can see the data.`)
 );
