@@ -3,15 +3,16 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 // Starting our app.
 const app = express();
+const PORT = 3306
 
 
 // import { DBhost, DBuser,DBpassword, DBdatabase } from 'react-native-dotenv'
 
 const connection = mysql.createPool({
-  host     : 'localhost',
-  user     : 'florent',
-  password : 'Milife1312',
-  database : 'whaza'
+  host     : 'eu-cdbr-west-03.cleardb.net',
+  user     : 'b7fb3d980df837',
+  password : '677a3898',
+  database : 'heroku_02048da86eec67a'
 });
 
 // //_____-----______//
