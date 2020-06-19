@@ -8,21 +8,21 @@ const app = express();
 
 const port = process.env.PORT || 8000
 
-const connection = mysql.createPool({
-  host     : 'eu-cdbr-west-03.cleardb.net',
-  user     : 'b7fb3d980df837',
-  password : '677a3898',
-  database : 'heroku_02048da86eec67a'
-});
+// const connection = mysql.createPool({
+//   host     : 'eu-cdbr-west-03.cleardb.net',
+//   user     : 'b7fb3d980df837',
+//   password : '677a3898',
+//   database : 'heroku_02048da86eec67a'
+// });
 
 // //_____-----______//
 
-// const connection = mysql.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_DATABASE
-// });
+const connection = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
+});
 
 console.log(connection)
 // mysql:b7fb3d980df837:677a3898@eu-cdbr-west-03.cleardb.net/heroku_02048da86eec67a?reconnect=true
