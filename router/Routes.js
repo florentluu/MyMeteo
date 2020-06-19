@@ -7,29 +7,29 @@ const app = express();
 
 // import { DBhost, DBuser,DBpassword, DBdatabase } from 'react-native-dotenv'
 
-// const connection = mysql.createPool({
-//   host     : 'localhost',
-//   user     : 'florent',
-//   password : 'Milife1312',
-//   database : 'whaza'
-// });
-
-//_____-----______//
-
-require('dotenv').config({path:'../.env'})
-
-  const PORT = process.env.PORT || 5000 
-  const host = process.env.DBhost
-  const user = process.env.DBuser
-  const password = process.env.DBpassword
-  const database = process.env.DBdatabase
-
 const connection = mysql.createPool({
-  host     : host,
-  user     : user,
-  password : password,
-  database : database
+  host     : 'localhost',
+  user     : 'florent',
+  password : 'Milife1312',
+  database : 'whaza'
 });
+
+// //_____-----______//
+
+// require('dotenv').config({path:'../.env'})
+
+//   const PORT = process.env.PORT || 5000 
+//   const host = process.env.DBhost
+//   const user = process.env.DBuser
+//   const password = process.env.DBpassword
+//   const database = process.env.DBdatabase
+
+// const connection = mysql.createPool({
+//   host     : host,
+//   user     : user,
+//   password : password,
+//   database : database
+// });
 console.log(connection)
 // mysql:b7fb3d980df837:677a3898@eu-cdbr-west-03.cleardb.net/heroku_02048da86eec67a?reconnect=true
 
