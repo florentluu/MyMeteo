@@ -18,10 +18,10 @@ require('dotenv').config({path:'../.env'})
 const PORT = process.env.PORT
 
 const connection = mysql.createPool({
-  host: process.env.DBhost,
-  user: process.env.DBuser,
-  password: process.env.DBpassword,
-  database: process.env.DBdatabase
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
 });
 
 console.log(connection)
