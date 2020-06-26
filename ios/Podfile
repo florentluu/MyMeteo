@@ -7,6 +7,7 @@ target 'MyMeteo' do
   rnPrefix = "../node_modules/react-native"
 
   # React Native and its dependencies
+  pod "PermissionsService/Location"
   pod 'FBLazyVector', :path => "#{rnPrefix}/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "#{rnPrefix}/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "#{rnPrefix}/Libraries/RCTRequired"
@@ -35,6 +36,7 @@ target 'MyMeteo' do
   pod 'DoubleConversion', :podspec => "#{rnPrefix}/third-party-podspecs/DoubleConversion.podspec"
   pod 'glog', :podspec => "#{rnPrefix}/third-party-podspecs/glog.podspec"
   pod 'Folly', :podspec => "#{rnPrefix}/third-party-podspecs/Folly.podspec"
+  pod 'GoogleMaps'
 
   # Other native modules
 
@@ -45,4 +47,16 @@ target 'MyMeteo' do
   use_native_modules!
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+  
+  
+
+  pod 'RNBackgroundGeolocation', :path => '../node_modules/react-native-background-geolocation'
+
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
+
+
 end
+
+
