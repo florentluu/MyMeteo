@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Button, Image, SafeAreaView, StyleSheet, Dimensions } from 'react-native'
 import style from '../Style'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
+import {Marker} from 'react-native-maps'
 
 // export default class About extends React.Component {
 
@@ -55,6 +56,7 @@ export default class About extends React.Component {
           }
         };
       }
+      
       componentDidMount() {
         navigator.geolocation.getCurrentPosition(
           position => {
@@ -69,12 +71,9 @@ export default class About extends React.Component {
           },
         (error) => console.log(error.message),
         { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-        );
-        
+        );    
       }
     
- 
-
       render() { console.log('position', this.state.region)
         return (
           <MapView
@@ -86,6 +85,13 @@ export default class About extends React.Component {
             <MapView.Marker
               coordinate={ this.state.region }
             />
+            <Marker
+              coordinate={{latitude: 44.861843,
+                longitude: -0.548993}}
+                style={{width: 200}}
+            >
+              <Image source={require('./icons/logoSplash2.png')} style={{height: 30, width:30, backgroundColor: "#333341", borderRadius: 30 }} />
+            </Marker>
           </MapView>
         );
     }
