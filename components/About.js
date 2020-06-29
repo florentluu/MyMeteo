@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, Button, Image, SafeAreaView, StyleSheet, Dimensions } from 'react-native'
-import style from '../Style'
+import axios from 'axios'
+import { Image, StyleSheet, Dimensions } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import {Marker} from 'react-native-maps'
+
 
 // export default class About extends React.Component {
 
@@ -53,7 +54,9 @@ export default class About extends React.Component {
             longitude: LONGITUDE,
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
-          }
+          },
+          markCoords : [],
+          isLoading: true
         };
       }
       
@@ -71,10 +74,15 @@ export default class About extends React.Component {
           },
         (error) => console.log(error.message),
         { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-        );    
+        );   
+        axios.get(`https://whaza.herokuapp.com/placeActivity`)
+        .then(response => {
+        const markCoords = response.data
+        this.setState({markCoords, isLoading: false});
+      }) 
       }
     
-      render() { console.log('position', this.state.region)
+      render() { console.log('position', this.state.region, "mark", this.state.markCoords)
         return (
           <MapView
             provider={ PROVIDER_GOOGLE }
@@ -85,13 +93,16 @@ export default class About extends React.Component {
             <MapView.Marker
               coordinate={ this.state.region }
             />
+            {this.state.markCoords.map(place => (
             <Marker
-              coordinate={{latitude: 44.861843,
-                longitude: -0.548993}}
+              coordinate={{
+                latitude: place.latMarker,
+                longitude: place.lngMarker}}
                 style={{width: 200}}
             >
-              <Image source={require('./icons/logoSplash2.png')} style={{height: 30, width:30, backgroundColor: "#333341", borderRadius: 30 }} />
+              <Image source={require('./icons/logoSplash3.png')} style={{ height: 50, width: 50 }} />
             </Marker>
+            ))}
           </MapView>
         );
     }

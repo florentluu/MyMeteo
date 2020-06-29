@@ -64,3 +64,6 @@ buck-out/
 
 # Expo
 .expo/*
+
+# config
+tsconfig.json
