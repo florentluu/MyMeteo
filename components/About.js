@@ -1,44 +1,10 @@
 import React from 'react';
 import axios from 'axios'
-import { Image, StyleSheet, Dimensions } from 'react-native'
+import { Image, StyleSheet, Dimensions, View, Text } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import {Marker} from 'react-native-maps'
+import FadeInView from './animations/FadeInView'
 
-
-// export default class About extends React.Component {
-
-//     search() {
-//         console.log('search',this.props.navigation.navigate("Search"))
-//     }
-
-//     render() {
-//         return(
-//             <View style={{ 
-//                 textAlign: 'center', 
-//                 paddingBottom: 30, 
-//                 paddingTop: 30,
-//                 backgroundColor: '#333341',
-//                 flex: 1,
-//                 paddingHorizontal: 20
-//             }}>
-                
-//                 <Text style={{paddingTop: 30, paddingBottom: 30, textAlign: 'center', fontSize: 20, color: 'tomato'}}>A PROPOS DE WAZAAA </Text>
-//                 <Text style={{color: 'white', fontSize: 15, paddingBottom: 30, textAlign: 'justify'}}>
-//                 Cette application sous le doux nom de WAZAAA (ie: "What's up?") pourra enfin guider toutes votre journée selon la météo.
-//                 Que ce soit en weekend, en séminaire, en road trip ou peut être même en fugue. WAZAAA vous a sélectionné une multitude de lieux atypiques et des Must See dans la ville que vous allez découvrir.
-//                 Profitez de cette aplication et n'hésitez pas à me faire part de vos endroits favoris via ce mail : contact@wazaaa.com
-
-//                 </Text>
-//                 <Button color={style.button.color} onPress={() => this.search()} title="Rechercher une ville"/>
-            
-//                 <Image
-//                     style={{width: 200, height: 200, alignSelf: 'center', marginTop: 30}}
-//                     source={require('./icons/w.gif')}
-//                 /> 
-//             </View>
-//         )
-//     }
-// }
 let { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = 0;
@@ -56,6 +22,7 @@ export default class About extends React.Component {
             longitudeDelta: LONGITUDE_DELTA,
           },
           markCoords : [],
+          markCoordsAct : [],
           isLoading: true
         };
       }
@@ -80,10 +47,16 @@ export default class About extends React.Component {
         const markCoords = response.data
         this.setState({markCoords, isLoading: false});
       }) 
+      axios.get(`https://whaza.herokuapp.com/activity`)
+      .then(response => {
+      const markCoordsAct = response.data
+      this.setState({markCoordsAct, isLoading: false});
+    }) 
       }
     
       render() { console.log('position', this.state.region, "mark", this.state.markCoords)
         return (
+          <FadeInView style={{flex: 1}}>
           <MapView
             provider={ PROVIDER_GOOGLE }
             style={ styles.container }
@@ -98,12 +71,39 @@ export default class About extends React.Component {
               coordinate={{
                 latitude: place.latMarker,
                 longitude: place.lngMarker}}
+                title={place.name}
                 style={{width: 200}}
             >
               <Image source={require('./icons/logoSplash3.png')} style={{ height: 50, width: 50 }} />
             </Marker>
             ))}
+
+            {this.state.markCoordsAct.map(place => (
+            <Marker
+              coordinate={{
+                latitude: place.latMarker,
+                longitude: place.lngMarker}}
+                title={place.drinks}
+                style={{width: 200}}
+            >
+              <Image source={require('./icons/logoSplash4.png')} style={{ height: 50, width: 50 }} />
+            </Marker>
+            
+            ))}
+            <View style={{paddingLeft: "5%", paddingTop: "10%"}}>
+            
+              <Text style={{textDecorationLine: "underline"}}>
+                Drinks 
+              </Text>
+              <Image source={require('./icons/logoSplash3.png')} style={{ height: 50, width: 50 }} />
+              <Text style={{textDecorationLine: "underline"}}>
+                Activities
+              </Text>
+              <Image source={require('./icons/logoSplash4.png')} style={{ height: 50, width: 50 }} />
+
+            </View>
           </MapView>
+          </FadeInView>
         );
     }
 }

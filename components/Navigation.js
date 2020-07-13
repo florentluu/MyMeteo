@@ -16,11 +16,11 @@ export default class Navigation extends React.Component {
             tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'Search') {
+            if (route.name === 'Rechercher') {
               iconName = focused
                 ? 'ios-search'
                 : 'ios-search';
-            } else if (route.name === 'About') {
+            } else if (route.name === 'Carte') {
               iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
             }
 
@@ -37,8 +37,8 @@ export default class Navigation extends React.Component {
             }
             }}
         >
-                <Tab.Screen name="Search" component={Search} />
-                <Tab.Screen name="About" component={About} />
+                <Tab.Screen name="Rechercher" component={Search} />
+                <Tab.Screen name="Carte" component={About} />
                 {/* <Tab.Screen name="List" component={List} /> */}
             </Tab.Navigator>
         );

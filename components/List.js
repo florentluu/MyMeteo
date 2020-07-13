@@ -76,11 +76,11 @@ export default class List extends React.Component {
     //QUOI FAIRE //
 
     toDo() {
-        this.props.navigation.navigate("Whazaaa", {city: this.state.city}),
-        this.props.navigation.navigate("Whazaaa",{reportIcon: this.state.reportIcon.main})
+        this.props.navigation.navigate("WHAZA", {city: this.state.city}),
+        this.props.navigation.navigate("WHAZA",{reportIcon: this.state.reportIcon.main})
     }
     
-    render() {
+    render() { console.log(this.state.reportIcon)
        const cityData= this.state.reportTemp
        const cityName= this.state.reportName
     

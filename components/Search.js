@@ -4,6 +4,7 @@ import style from '../Style'
 import { createStackNavigator } from '@react-navigation/stack'
 import List from './List'
 import Activity from './Activitiy'
+import FadeInView from './animations/FadeInView'
 
 class Search extends React.Component {
 
@@ -12,7 +13,6 @@ class Search extends React.Component {
         this.state = {
             city: ''
         }
-        // this.submit() si activé, 1ère page === Résultats NAN
     }
 
     setCity (city) {
@@ -20,13 +20,13 @@ class Search extends React.Component {
     }
 
     submit() {
-        this.props.navigation.navigate("Resultat", {city: this.state.city})
+        this.props.navigation.navigate("RÉSULTAT", {city: this.state.city})
     }
     
 
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: "#333341"}}>
+            <FadeInView style={{flex: 1, backgroundColor: "#333341"}}>
                 <TextInput
                     underlineColorAndroid='transparent'
                     onChangeText={(text) => this.setCity(text)}
@@ -43,7 +43,7 @@ class Search extends React.Component {
                     style={{width: 200, height: 200, alignSelf: 'center', marginTop: 180}}
                     source={require('./icons/w.gif')}
                 />
-            </View>
+            </FadeInView>
         )
     }
 }
@@ -63,19 +63,21 @@ function MyStack(){
             }}
         />
         <Stack.Screen 
-            name= "Resultat"
+            name= "RÉSULTAT"
             component={List} 
             options={{
                 headerStyle: { backgroundColor: "black" },
-                headerTitleStyle: { color: "tomato" }
+                headerTitleStyle: { color: "tomato" },
+                headerTitle: false
             }}
         />
         <Stack.Screen 
-            name= "Whazaaa"
+            name= "WHAZA"
             component={Activity} 
             options={{
                 headerStyle: { backgroundColor: "black" },
-                headerTitleStyle: { color: "white" }
+                headerTitleStyle: { color: "tomato" },
+                headerTitle: false
             }}
         />
     </Stack.Navigator>

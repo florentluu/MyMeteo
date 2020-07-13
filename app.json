@@ -1,8 +1,9 @@
 {
-  "name": "MyMeteo",
-  "displayName": "MyMeteo",
+  "name": "WHAZA",
+  "displayName": "WHAZA",
   "expo": {
-    "name": "MyMeteo",
+    "name": "WHAZA",
+    "icon": "./components/icons/logoSplash3.png",
     "slug": "MyMeteo",
     "version": "1.0.0",
     "platforms": [
